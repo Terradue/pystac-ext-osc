@@ -18,7 +18,7 @@ limitations under the License.
 
 The EarthCODE tutorial's [Create new workflow record section](https://esa-earthcode.github.io/tutorials/osc-pr-pystac/) builds a nested dictionary in `create_workflow_collection()`. With this package, you can create an `OGCRecord`, assign common metadata through named accessors, and use ordinary PySTAC links. You no longer need a helper whose responsibility is assembling the record's JSON envelope.
 
-This tutorial uses illustrative workflow metadata and retains the source example's custom workflow properties. It also identifies the differences between preserving that example and claiming OGC conformance.
+This tutorial uses illustrative workflow metadata and uses OSC extension accessors for the source example's project and status metadata. It also identifies the differences between preserving that example and claiming OGC conformance.
 
 ## 1. Install and create the record
 
@@ -29,18 +29,18 @@ from datetime import datetime, timezone
 
 import pystac
 from pystac.extensions.ogc_record import OGCRecord
+from pystac.extensions.osc import ItemOscExtension, OscStatus
 from pystac.utils import datetime_to_str
 
 project_id = "crop-mapping"
 workflow = OGCRecord(
     id="crop-mapping-workflow",
-    properties={
-        "osc:project": project_id,
-        "osc:type": "workflow",
-        "osc:status": "completed",
-        "version": "1",
-    },
+    properties={"version": "1"},
 )
+osc = ItemOscExtension(workflow)
+osc.project = project_id
+osc.status = OscStatus.COMPLETED
+
 workflow.type = "workflow"
 workflow.title = "Crop mapping workflow"
 workflow.description = "A reproducible workflow for mapping cropland."
@@ -65,7 +65,9 @@ workflow.add_links([
 ])
 ```
 
-The adapter supplies the Feature envelope and null geometry. Common properties use accessors such as `title`, `formats`, and `license`; custom fields remain explicit in `properties`. `pystac.Link` handles link serialization, including mapping `target` to JSON `href` and `media_type` to JSON `type`.
+The adapter supplies the Feature envelope and null geometry. Common properties use accessors such as `title`, `formats`, and `license`; OSC fields use `osc.project` and `osc.status`. Only the custom `version` field remains explicit in `properties`. `pystac.Link` handles link serialization, including mapping `target` to JSON `href` and `media_type` to JSON `type`.
+
+`ItemOscExtension(workflow)` binds the existing OSC property accessors directly to the Item-compatible record. Unlike `OscExtension.ext(..., add_if_missing=True)`, this constructor does not add a STAC schema declaration. That matters here: the OSC STAC schema describes projects and products, not workflow records. This is accessor reuse, not a claim that the workflow validates against that schema.
 
 The timestamp is computed once using timezone-aware UTC. These metadata accessors store strings, so `datetime_to_str()` supplies the serialized timestamp. `created` and `updated` describe metadata timestamps; they do not supply a STAC Item `datetime`.
 
@@ -75,6 +77,7 @@ The timestamp is computed once using timezone-aware UTC. These metadata accessor
 | --- | --- | --- |
 | Feature envelope | Explicit `type`, `geometry`, `properties`, and `links` members | `OGCRecord(id=..., properties=...)` and `to_record_dict()` |
 | Common metadata | Nested property-key assignments | `workflow.title`, `workflow.keywords`, `workflow.license`, etc. |
+| OSC metadata | Prefixed property-key assignments | `osc.project` and `osc.status = OscStatus.COMPLETED` |
 | Resource links | Handwritten link dictionaries | `pystac.Link` and `add_links()` |
 | Optional metadata removal | Delete a nested key | Assign `None` to a common metadata accessor |
 | Independent copy | Copy the document and manage nested state | `workflow.clone()` |
@@ -90,6 +93,9 @@ assert document["type"] == "Feature"
 assert document["geometry"] is None
 assert document["properties"]["title"] == workflow.title
 assert document["properties"]["osc:project"] == project_id
+assert document["properties"]["osc:status"] == OscStatus.COMPLETED.value
+assert "osc:type" not in document["properties"]
+assert "stac_extensions" not in document
 assert "datetime" not in document["properties"]
 assert "stac_version" not in document
 assert document["links"][2]["href"] == (
@@ -98,6 +104,9 @@ assert document["links"][2]["href"] == (
 
 restored = OGCRecord.from_dict(document)
 assert restored.title == workflow.title
+restored_osc = ItemOscExtension(restored)
+assert restored_osc.project == project_id
+assert restored_osc.status == OscStatus.COMPLETED
 assert restored.to_record_dict(transform_hrefs=False) == document
 
 working_copy = restored.clone()
@@ -131,7 +140,7 @@ This is a staging artifact. Place it at the intended catalog location, add the c
 
 This example deliberately makes the following choices explicit:
 
-- **Resource type:** `workflow.type = "workflow"` adds `properties.type`; the top-level `type` remains `Feature`. The retained `osc:type`, `osc:status`, and `version` keys preserve the EarthCODE example's custom metadata. They are not evidence that the record satisfies the OSC STAC schema.
+- **Resource type:** `workflow.type = "workflow"` adds `properties.type`; the top-level `type` remains `Feature`. The unsupported `osc:type="workflow"` assignment is omitted: `OscType` only accepts project and product. The `osc:status` and `version` values retain the EarthCODE example's additional metadata; workflow status is not required by the upstream OSC workflow convention. They are not evidence that the record satisfies the OSC STAC schema.
 - **OSC scope:** upstream OSC describes workflows with `osc:project` and a `related` project link. Add `child` links when experiments exist. `OscType` only contains project and product; do not use `OscExtension.apply_project()` or `apply_product()` to construct a workflow, or declare their STAC schema for this record.
 - **Conformance:** the source example includes a record-core `/req/` identifier. This tutorial omits `conformsTo` because constructing an object does not establish conformance. After verification, an applicable record-core conformance identifier is `http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core`, supplied through `conforms_to` or `workflow.conforms_to`. Conformance identifiers and `stac_extensions` serve different purposes.
 - **Optional members:** `linkTemplates` is omitted when unused. Assign `workflow.link_templates = []` if a consumer expects an explicit empty list.
