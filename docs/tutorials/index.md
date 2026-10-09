@@ -17,5 +17,3 @@ limitations under the License.
 # Tutorials
 
 [Create a project and product](first-steps.md), attach OSC metadata, and round-trip a STAC Collection without connecting to a catalog service.
-
-[Adapt the EarthCODE workflow example](earthcode-workflow.md) using record metadata accessors, PySTAC links, and an explicit JSON round-trip.

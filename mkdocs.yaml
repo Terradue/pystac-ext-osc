@@ -13,7 +13,7 @@
 # limitations under the License.
 
 site_name: Open Science Catalog PySTAC extension
-site_description: OSC v1.0.0 metadata and OGC API Records with PySTAC.
+site_description: OSC v1.0.0 metadata with PySTAC.
 site_url: https://terradue.github.io/pystac-ext-osc/
 repo_url: https://github.com/Terradue/pystac-ext-osc
 repo_name: pystac-ext-osc
@@ -27,16 +27,13 @@ nav:
   - Tutorials:
       - Overview: tutorials/index.md
       - First steps: tutorials/first-steps.md
-      - Simplify the EarthCODE workflow example: tutorials/earthcode-workflow.md
   - How-to guides:
       - Overview: how-to/index.md
       - Install: how-to/install.md
       - Work with Open Science Catalog metadata: how-to/use-extension.md
-      - Workflow and experiment records: how-to/ogc-records.md
   - Reference:
       - Overview: reference/index.md
       - Open Science Catalog fields: reference/fields.md
-      - OGC Records: reference/ogc-records.md
       - Python API: reference/api.md
   - Explanation:
       - Overview: explanation/index.md

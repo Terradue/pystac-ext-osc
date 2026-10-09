@@ -17,5 +17,4 @@ limitations under the License.
 # Reference
 
 - [OSC fields](fields.md): schema constraints and accessor behavior.
-- [OGC Records](ogc-records.md): metadata, serialization, and compatibility.
 - [Python API](api.md): classes and methods from the source code.

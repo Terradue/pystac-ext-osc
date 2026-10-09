@@ -27,15 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Replace stale InSAR documentation with OSC v1.0.0 examples and OGC Records guides and API reference.
+- Replace stale InSAR documentation with OSC v1.0.0 examples, guides, and API reference.
 
 ### Fixed
 
 - Use the explicit OSC extension accessor in tests and resolve Ruff import, cast, suppression, and class-state diagnostics.
-
-### Removed
-
-- the `ogc-record` model will be released as separated module.
 
 ## [1.0.0] - 2026-10-06
 

@@ -18,4 +18,3 @@ limitations under the License.
 
 - [Install the package and build the documentation](install.md).
 - [Update OSC fields and connect resources](use-extension.md).
-- [Create and read OGC workflow and experiment records](ogc-records.md).

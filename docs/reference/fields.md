@@ -35,4 +35,4 @@ All getters allow missing values; all setters accept `None` to remove a field. E
 
 ## Related metadata
 
-`themes` and project `contacts` belong to separate extensions. `related` links connect referenced entities. Variables themselves use themes and related links without OSC fields. Workflows and experiments use [OGC Records](ogc-records.md), with `osc:project` or `osc:workflow` in their properties; they are not additional `OscType` values.
+`themes` and project `contacts` belong to separate extensions. `related` links connect referenced entities. Variables themselves use themes and related links without OSC fields.

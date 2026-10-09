@@ -16,7 +16,7 @@ limitations under the License.
 
 # Python API
 
-Use `OscExtension.ext()` for Catalogs, Collections, and Items. Construct or deserialize records with `OGCRecord` explicitly.
+Use `OscExtension.ext()` for Catalogs, Collections, and Items.
 
 ::: pystac.extensions.osc
     options:
