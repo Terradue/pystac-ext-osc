@@ -33,13 +33,3 @@ Use `OscExtension.ext()` for Catalogs, Collections, and Items. Construct or dese
       inherited_members: false
       show_root_heading: true
       show_signature_annotations: true
-
-::: pystac.extensions.ogc_record
-    options:
-      members:
-        - OGCRecord
-        - RecordCommonProperties
-        - RecordMetadataMixin
-      inherited_members: false
-      show_root_heading: true
-      show_signature_annotations: true
