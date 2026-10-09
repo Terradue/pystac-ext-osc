@@ -21,9 +21,9 @@ limitations under the License.
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/terradue/pystac-ext-osc/package.yaml?branch=develop&event=push&label=build&logo=githubactions)](https://github.com/terradue/pystac-ext-osc/actions/workflows/package.yaml?query=branch%3Adevelop)
 [![Code coverage](https://img.shields.io/codecov/c/github/terradue/pystac-ext-osc/develop?logo=codecov)](https://app.codecov.io/gh/terradue/pystac-ext-osc/tree/develop)
 
-PySTAC implementation of the [Open Science Catalog STAC Extension v1.0.0](https://github.com/stac-extensions/osc), with an [OGC API Records](https://ogcapi.ogc.org/records/) adapter.
+PySTAC implementation of the [Open Science Catalog STAC Extension v1.0.0](https://github.com/stac-extensions/osc).
 
-Use `OscExtension.ext()` for project/product metadata on Catalogs, Collections, and Items. Use `OGCRecord` for workflow and experiment records. See the [OSC tutorial](docs/tutorials/first-steps.md) and [OGC Record guide](docs/how-to/ogc-records.md) for runnable examples and validation boundaries.
+Use `OscExtension.ext()` for project/product metadata on Catalogs, Collections, and Items. See the [OSC tutorial](docs/tutorials/first-steps.md) and [architecture guide](docs/explanation/architecture.md) for runnable examples and validation boundaries.
 
 ## Project conventions
 

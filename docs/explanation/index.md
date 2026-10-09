@@ -16,4 +16,4 @@ limitations under the License.
 
 # Explanation
 
-[Architecture and validation](architecture.md) explains how OSC wrappers and OGC Records use PySTAC, and where schema validation is required.
+[Architecture and validation](architecture.md) explains how OSC wrappers use PySTAC, and where schema validation is required.

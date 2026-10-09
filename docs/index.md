@@ -16,7 +16,7 @@ limitations under the License.
 
 # Open Science Catalog PySTAC extension
 
-`pystac-ext-osc` provides `OscExtension` for project and product metadata on PySTAC Catalogs, Collections, and Items, and `OGCRecord` for OGC API Records documents.
+`pystac-ext-osc` provides `OscExtension` for project and product metadata on PySTAC Catalogs, Collections, and Items.
 
 The OSC wrapper targets [OSC v1.0.0](https://github.com/stac-extensions/osc) and declares `https://stac-extensions.github.io/osc/v1.0.0/schema.json`. The package version is independent of the specification version.
 
@@ -26,7 +26,6 @@ python -m pip install pystac-ext-osc
 
 - [Create a project and product](tutorials/first-steps.md).
 - [Update OSC metadata and links](how-to/use-extension.md).
-- [Create workflow and experiment records](how-to/ogc-records.md).
-- [Look up OSC fields](reference/fields.md) and [OGC Record behavior](reference/ogc-records.md).
+- [Look up OSC fields](reference/fields.md).
 - [Browse the Python API](reference/api.md).
 - [Understand architecture and validation](explanation/architecture.md).
