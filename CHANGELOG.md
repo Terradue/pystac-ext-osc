@@ -23,23 +23,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+## [1.1.0] - 2026-10-09
 
 ### Changed
 
 - Replace stale InSAR documentation with OSC v1.0.0 examples and OGC Records guides and API reference.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Use the explicit OSC extension accessor in tests and resolve Ruff import, cast, suppression, and class-state diagnostics.
 
-### Security
+### Removed
 
-### Added
+- the `ogc-record` model will be released as separated module.
 
 ## [1.0.0] - 2026-10-06
 
@@ -47,5 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial project release.
 
-[Unreleased]: https://github.com/Terradue/pystac-ext-osc/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/Terradue/pystac-ext-osc/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/Terradue/pystac-ext-osc/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/Terradue/pystac-ext-osc/releases/tag/1.0.0

@@ -14,4 +14,4 @@
 
 """Package metadata for Open Science Catalogue pystac extension."""
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
