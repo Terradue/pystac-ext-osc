@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://terradue.github.io/pystac-ext-osc/reference/fields/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Open Science Catalog fields - Open Science Catalog PySTAC extension</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Open Science Catalog fields";
+        var mkdocs_page_input_path = "reference/fields.md";
+        var mkdocs_page_url = "/pystac-ext-osc/reference/fields/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Open Science Catalog PySTAC extension
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/first-steps/">First steps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How-to guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/install/">Install</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/use-extension/">Work with Open Science Catalog metadata</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Open Science Catalog fields</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#related-metadata">Related metadata</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api/">Python API</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Explanation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/architecture/">Architecture</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Open Science Catalog PySTAC extension</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+      <li class="breadcrumb-item active">Open Science Catalog fields</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Terradue/pystac-ext-osc/edit/main/docs/reference/fields.md">Edit on pystac-ext-osc</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!--
+Copyright 2026 Terradue
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<h1 id="osc-fields">OSC fields<a class="headerlink" href="#osc-fields" title="Permanent link">&para;</a></h1>
+<p>These accessors belong to <code>OscExtension</code>. Catalogs and Collections store fields at the top level; Items store them in <code>properties</code>.</p>
+<table>
+<thead>
+<tr>
+<th>JSON field</th>
+<th>Python property</th>
+<th>Applies to</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>osc:type</code></td>
+<td><code>osc_type</code></td>
+<td>Both</td>
+<td>Required: <code>OscType.PROJECT</code> or <code>OscType.PRODUCT</code>.</td>
+</tr>
+<tr>
+<td><code>osc:status</code></td>
+<td><code>status</code></td>
+<td>Both</td>
+<td>Required: <code>OscStatus.PLANNED</code>, <code>ONGOING</code>, or <code>COMPLETED</code>.</td>
+</tr>
+<tr>
+<td><code>osc:workflows</code></td>
+<td><code>workflows</code></td>
+<td>Project</td>
+<td>Optional list of workflow names.</td>
+</tr>
+<tr>
+<td><code>osc:project</code></td>
+<td><code>project</code></td>
+<td>Product</td>
+<td>Required project name.</td>
+</tr>
+<tr>
+<td><code>osc:region</code></td>
+<td><code>region</code></td>
+<td>Product</td>
+<td>Optional geographic region name.</td>
+</tr>
+<tr>
+<td><code>osc:variables</code></td>
+<td><code>variables</code></td>
+<td>Product</td>
+<td>Optional list of observed variable names.</td>
+</tr>
+<tr>
+<td><code>osc:missions</code></td>
+<td><code>missions</code></td>
+<td>Product</td>
+<td>Optional list of input mission names.</td>
+</tr>
+<tr>
+<td><code>osc:experiment</code></td>
+<td><code>experiment</code></td>
+<td>Product</td>
+<td>Optional generating experiment name.</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="https://stac-extensions.github.io/osc/v1.0.0/schema.json">v1.0.0 schema</a> requires nonempty strings for names and list entries, permits empty lists, and rejects unknown <code>osc:</code> fields. Project and product fields cannot be mixed. Non-OSC fields remain permitted by the extension schema.</p>
+<p>All getters allow missing values; all setters accept <code>None</code> to remove a field. Enum getters raise <code>ValueError</code> for unrecognized stored enum strings. The wrapper does not enforce every schema constraint: string/list setters do not validate nonempty values, and individual setters can create an invalid combination. Call STAC validation separately.</p>
+<h2 id="related-metadata">Related metadata<a class="headerlink" href="#related-metadata" title="Permanent link">&para;</a></h2>
+<p><code>themes</code> and project <code>contacts</code> belong to separate extensions. <code>related</code> links connect referenced entities. Variables themselves use themes and related links without OSC fields.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api/" class="btn btn-neutral float-right" title="Python API">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Terradue/pystac-ext-osc" class="fa fa-code-fork" style="color: #fcfcfc"> pystac-ext-osc</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
